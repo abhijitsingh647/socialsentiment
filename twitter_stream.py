@@ -115,6 +115,7 @@ class listener(StreamListener):
             else:
                 tweet = unidecode(data['text'])
             time_ms = data['timestamp_ms']
+            analyzer = SentimentIntensityAnalyzer()
             vs = analyzer.polarity_scores(tweet)
             sentiment = vs['compound']
             #print(time_ms, tweet, sentiment)
